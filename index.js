@@ -9,6 +9,7 @@ const typeDefs = gql`
     "A list field that could use some performance improvements"
     allUsers: [User!]!
     topics: [String!]
+    name: String!
   }
   
   type User {
@@ -38,6 +39,7 @@ const resolvers = {
     Query: {
         topics: () => ['pizza', 'hot chip', 'carrots', 'pets', 'nature', 'zoomies', 'react', 'hay'],
         allUsers: (parent, { page } = {}) => allUsers,
+        name: () =>'Elizabeth',
     },
   };
 // The ApolloServer constructor requires two parameters: your schema
